@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .question {
+            margin-bottom: 10px;
+        }
+        .answers {
+            margin-left: 20px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2>Soil Quiz</h2>
+        
+        <div class="question">
+            <p>1. What is soil made up of?</p>
+            <div class="answers">
+                <label><input type="radio" name="q1" value="a"> a) Just dirt</label><br>
+                <label><input type="radio" name="q1" value="b"> b) Water and air</label><br>
+                <label><input type="radio" name="q1" value="c"> c) Rocks and minerals</label><br>
+                <label><input type="radio" name="q1" value="d"> d) Living things, rocks, water, and air</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>2. What grows in soil?</p>
+            <div class="answers">
+                <label><input type="radio" name="q2" value="a"> a) Only rocks</label><br>
+                <label><input type="radio" name="q2" value="b"> b) Only water</label><br>
+                <label><input type="radio" name="q2" value="c"> c) Plants and trees</label><br>
+                <label><input type="radio" name="q2" value="d"> d) Only air</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>3. Why is soil important?</p>
+            <div class="answers">
+                <label><input type="radio" name="q3" value="a"> a) Because it's dirty</label><br>
+                <label><input type="radio" name="q3" value="b"> b) Because it's pretty</label><br>
+                <label><input type="radio" name="q3" value="c"> c) Because it helps plants grow</label><br>
+                <label><input type="radio" name="q3" value="d"> d) Because it's hard</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>4. What can we do to help keep soil healthy?</p>
+            <div class="answers">
+                <label><input type="radio" name="q4" value="a"> a) Throw trash on the ground</label><br>
+                <label><input type="radio" name="q4" value="b"> b) Use too much water</label><br>
+                <label><input type="radio" name="q4" value="c"> c) Add special helpers like compost</label><br>
+                <label><input type="radio" name="q4" value="d"> d) Walk on it too much</label>
+            </div>
+        </div>
+
+        <button onclick="submitQuiz()">Submit Quiz</button>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            // Gather user responses
+            let responses = {
+                q1: document.querySelector('input[name="q1"]:checked').value,
+                q2: document.querySelector('input[name="q2"]:checked').value,
+                q3: document.querySelector('input[name="q3"]:checked').value,
+                q4: document.querySelector('input[name="q4"]:checked').value
+            };
+
+            // Check answers
+            let correctAnswers = {
+                q1: 'd',
+                q2: 'c',
+                q3: 'c',
+                q4: 'c'
+            };
+
+            // Calculate score
+            let score = 0;
+            for (let question in responses) {
+                if (responses[question] === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            // Display score
+            alert(`You scored ${score} out of 4.`);
+        }
+    </script>
+</body>
+</html>
